@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Two-Tone Background</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Inline style for specific spacing */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-x: hidden; /* Hide horizontal overflow */
+      }
+
+      .top-half {
+        background-color: #241e4e;
+        color: white;
+        height: 25%; /* Adjusted to 30% */
+        display: flex;
+        flex-direction: column; /* Ensures items stack vertically */
+        align-items: flex-start; /* Align items to the left */
+        justify-content: center;
+        position: fixed; /* Make it fixed */
+        width: 99.01%; /* Ensure it takes full width */
+        padding-left: 50px; /* Added padding for alignment */
+        z-index: 1000; /* Ensure it stays above other content */
+      }
+
+      .mastermed {
+        display: flex; /* Added to align text and image */
+        align-items: center; /* Center align items vertically */
+        color: #eadaa2;
+        font-size: 30px; /* Increase font size */
+        font-family: "Helvetica", sans-serif; /* Set font */
+        margin: 0;
+      }
+
+      .pharmaceutical {
+        color: #eadaa2;
+        font-size: 15px; /* Set font size */
+        font-family: "Helvetica", sans-serif; /* Set font */
+        margin: 0;
+        margin-top: 75px;
+        margin-left: 35px;
+      }
+
+      .navigation {
+        margin-top: -30px;
+        margin-right: 20px;
+        font-family: "Algerian", sans-serif; /* Adjust margin-right for spacing */
+      }
+
+      .navigation ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: right; /* Align links to the right */
+      }
+
+      .navigation ul li {
+        display: inline-block;
+        margin-left: 10px; /* Adjust space between links */
+      }
+
+      .navigation ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 5px 10px;
+        font-size: 20px; /* Set font size */
+        font-family: "Algerian", sans-serif; /* Set font */
+      }
+
+      .navigation ul li a:hover,
+      .navigation ul li a:focus {
+        background-color: #3c0374; /* Background color on hover/focus */
+      }
+
+      .bottom-half {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        text-align: center;
+        height: 100%;
+        width: 90%; /* Adjusted width */
+        background: url("3image.jpg") no-repeat center top;
+        background-size: cover;
+        border-radius: 90px;
+        box-shadow: 0 8px 16px rgb(244, 244, 123);
+        padding-right: 300px; /* Adjusted padding */
+      }
+
+      .bottom-half::after {
+        content: "";
+        position: absolute;
+        top: 30%; /* 30% from the top */
+        left: 0;
+        width: 45%;
+        height: 200%;
+        background-color: #f5efd9; /* Same color as the bottom part */
+        z-index: -1; /* Ensure the color is behind the image */
+      }
+
+      .new-container {
+        width: 60%;
+        height: 100px;
+        display: flex;
+        gap: 5px;
+        margin-top: 600px; /* Adjusted for spacing */
+        margin-left: 80px; /* Center horizontally */
+        margin-right: auto;
+        bottom: -430px; /* Center horizontally */
+      }
+
+      .new-container img {
+        width: 10%;
+        height: 300%;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid #f5efd9;
+        transition: all ease-out 1s;
+      }
+
+      .new-container img:hover {
+        width: 100%;
+        box-shadow: 0 8px 16px rgb(0, 0, 0);
+        /* Add your hover styles here */
+      }
+
+      /* Style for the new image */
+      .top-half img {
+        width: 120px; /* Set image width */
+        height: 120px; /* Set image height */
+        object-fit: contain; /* Ensure the image fits within the dimensions */
+        margin-left: 5px;
+        margin-top: 20px; /* Space between the text and the image */
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+        top: 20px;
+      }
+
+      body {
+        cursor: default; /* Hide default cursor */
+      }
+      .card {
+        width: 300px;
+        margin: 10px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        margin-top: 150px; /* Adjusted margin-top */
+        margin-bottom: 150px; /* Adjusted margin-bottom */
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgb(239, 234, 81);
+      }
+
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 15px;
+      }
+
+      .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #51391f;
+      }
+
+      .card-text {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #555;
+      }
+
+      .card-author {
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 10px;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: center;
+        background-color: #eee;
+        padding: 10px;
+      }
+
+      .nav button {
+        padding: 10px 20px;
+        margin: 0 5px;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .nav button:hover {
+        background-color: #ddd;
+      }
+
+      .nav button.active {
+        background-color: #ccc;
+      }
+      .bottom-section {
+        background-color: #241e4e; /* Dark blue color */
+        width: 99.01%; /* Full width */
+        height: 80px; /* Height of 80 pixels */
+        position: fixed; /* Fixed positioning */
+        bottom: 0; /* Positioned at the bottom */
+        display: flex; /* Flexbox for alignment */
+        justify-content: space-around; /* Space images evenly */
+        align-items: center; /* Center images vertically */
+      }
+
+      /* Style for the new image */
+      .bottom-image {
+    width: 2px; /* Decreased image width */
+    height: 2px; /* Decreased image height */
+    object-fit: cover; /* Ensure the image covers the area */
+    position: absolute; /* Position the image absolutely */
+    left: 85%; /* Adjust left position as needed */
+    transform: translateX(-40%); /* Center the image horizontally */
+    bottom: 20px; /* Adjust bottom position as needed */
+    top: 600px; /* Adjust top position as needed */
+}
+
+/* Style for the new image with custom positioning */
+.custom-positioned-image {
+    width: 25px; /* Decreased width */
+    height: 25px; /* Decreased height */
+    object-fit: cover; /* Ensure the image covers the area */
+    position: absolute; /* Position the image absolutely */
+    left: 50px; /* Adjust left position */
+    bottom: 20px; /* Adjust bottom position */
+    top: 610px; /* Adjust top position */
+}
+
+
+      .new-container {
+        width: 60%;
+        height: 100px;
+        display: flex;
+        gap: 5px;
+        margin-top: 1000px; /* Adjusted for spacing */
+        margin-left: 50px; /* Adjust as needed */
+        margin-right: auto; /* Adjust as needed */
+        position: relative; /* Make the parent container relatively positioned */
+      }
+      .statement-container {
+        background-color: #241e4e;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 650px;
+        position: move; /* Change to fixed */
+        bottom: 20px; /* Adjusted bottom position */
+        right: 50px; /* Adjusted right position */
+        z-index: 100;
+        margin-top: 350px;
+        margin-left: 750px; /* Ensure it's above other content */
+      }
+
+      .statement-container p {
+        margin: 0;
+        font-size: 16px; /* Adjust font size as needed */
+        font-family: Helvetica, sans-serif;
+        color: #eadaa2;
+        font-size: 20px; /* Font for readability */
+      }
+
+      .about-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 900px;
+        margin-left: 60px;
+       /* Adjust margin as needed */
+      }
+
+      .about-text {
+        font-size: 35px; /* Adjust font size as needed */
+        font-weight: bold;
+        color: rgb(242, 242, 182); /* Beige color for "US" */
+        margin-left: 5px; /* Adjust spacing between "ABOUT" and "US" */
+      }
+
+      .about-text:first-child {
+        color: #1a0d75; /* Dark blue color for "ABOUT" */
+      }
+
+      .cure-for-rare {
+  position: absolute;
+  top: 50%; /* Adjust top position as needed */
+  left: 50%; /* Adjust left position as needed */
+  transform: translate(-50%, -50%); /* Center the text */
+  font-size: 50px; /* Adjust font size as needed */
+  font-family: 'Helvetica', sans-serif; /* Set font family */
+  font-weight: bold; /* Make the text bold */
+  color: #ffffff; /* Set text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: Add shadow for better visibility */
+}
+
+
+      .button {
+  --primary: #220f55;
+  --neutral-1: rgb(242, 242, 182);
+  --neutral-2: rgb(242, 242, 182);
+  --radius: 14px;
+
+  cursor: pointer;
+  border-radius: var(--radius);
+  text-shadow: 0 1px 1px #f8f7f9;
+  border: none;
+  box-shadow: 0 0.5px 0.5px 1px rgba(255, 255, 255, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.2), 0 4px 5px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  padding: 20px;
+  height: 68px;
+  font-family: "Galano Grotesque", Poppins, Montserrat, sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 600;
+  top: 730px;
+  left: -350px;
+}
+.button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 15px 30px rgba(0, 0, 0, 0.3), 0 10px 3px -3px rgba(0, 0, 0, 0.04);
+}
+.button:active {
+  transform: scale(1);
+  box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.3),
+    0 10px 3px -3px rgba(0, 0, 0, 0.2);
+}
+.button:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  border: 2.5px solid transparent;
+  background: linear-gradient(var(--neutral-1), var(--neutral-2)) padding-box,
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.45))
+      border-box;
+  z-index: 0;
+  transition: all 0.4s ease;
+}
+.button:hover::after {
+  transform: scale(1.05, 1.1);
+  box-shadow: inset 0 -1px 3px 0 rgb(255, 255, 255);
+}
+.button::before {
+  content: "";
+  inset: 7px 6px 6px 6px;
+  position: absolute;
+  background: linear-gradient(to top, var(--neutral-1), var(--neutral-2));
+  border-radius: 30px;
+  filter: blur(0.5px);
+  z-index: 2;
+}
+.state p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.state .icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transform: scale(1.25);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.state .icon svg {
+  overflow: visible;
+}
+
+/* Outline */
+.outline {
+  position: absolute;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  inset: -2px -3.5px;
+}
+.outline::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 60%,
+    white 80%,
+    transparent 100%
+  );
+  animation: spin 2s linear infinite;
+  animation-play-state: paused;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.button:hover .outline {
+  opacity: 1;
+}
+.button:hover .outline::before {
+  animation-play-state: running;
+}
+
+/* Letters */
+.state p span {
+  display: block;
+  opacity: 0;
+  animation: slideDown 0.8s ease forwards calc(var(--i) * 0.03s);
+}
+.button:hover p span {
+  opacity: 1;
+  animation: wave 0.5s ease forwards calc(var(--i) * 0.02s);
+}
+.button:focus p span {
+  opacity: 1;
+  animation: disapear 0.6s ease forwards calc(var(--i) * 0.03s);
+}
+@keyframes wave {
+  30% {
+    opacity: 1;
+    transform: translateY(4px) translateX(0) rotate(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px) translateX(0) rotate(0);
+    color: var(--primary);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(5px) rotate(-90deg);
+    color: var(--primary);
+    filter: blur(5px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(4px) translateX(0) rotate(0);
+    filter: blur(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px) translateX(0) rotate(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+@keyframes disapear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(5px) translateY(20px);
+    color: var(--primary);
+    filter: blur(5px);
+  }
+}
+
+/* Plane */
+.state--default .icon svg {
+  animation: land 0.6s ease forwards;
+}
+.button:hover .state--default .icon {
+  transform: rotate(45deg) scale(1.25);
+}
+.button:focus .state--default svg {
+  animation: takeOff 0.8s linear forwards;
+}
+.button:focus .state--default .icon {
+  transform: rotate(0) scale(1.25);
+}
+@keyframes takeOff {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(70px) rotate(45deg) scale(2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(160px) rotate(45deg) scale(0);
+  }
+}
+@keyframes land {
+  0% {
+    transform: translateX(-60px) translateY(30px) rotate(-50deg) scale(2);
+    opacity: 0;
+    filter: blur(3px);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Contrail */
+.state--default .icon:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 0;
+  left: -5px;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.5));
+}
+.button:focus .state--default .icon:before {
+  animation: contrail 0.8s linear forwards;
+}
+@keyframes contrail {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  8% {
+    width: 15px;
+  }
+  60% {
+    opacity: 0.7;
+    width: 80px;
+  }
+  100% {
+    opacity: 0;
+    width: 160px;
+  }
+}
+
+/* States */
+.state {
+  padding-left: 29px;
+  z-index: 2;
+  display: flex;
+  position: relative;
+}
+.state--default span:nth-child(4) {
+  margin-right: 5px;
+}
+.state--sent {
+  display: none;
+}
+.state--sent svg {
+  transform: scale(1.25);
+  margin-right: 8px;
+}
+.button:focus .state--default {
+  position: absolute;
+}
+.button:focus .state--sent {
+  display: flex;
+}
+.button:focus .state--sent span {
+  opacity: 0;
+  animation: slideDown 0.8s ease forwards calc(var(--i) * 0.2s);
+}
+.button:focus .state--sent .icon svg {
+  opacity: 0;
+  animation: appear 1.2s ease forwards 0.8s;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(4) rotate(-40deg);
+    color: var(--primary);
+    filter: blur(4px);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(0.6);
+    filter: blur(1px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+      /* CSS styles for the custom container */
+    </style>
+  </head>
+  <body>
+    <div class="top-half">
+      <div class="mastermed">
+        <h1>
+          <em style="font-family: Helvetica, sans-serif; font-weight: 300"
+            >MASTER</em
+          ><strong style="font-weight: bold">MED</strong>
+        </h1>
+        <img
+          src="WhatsApp Image 2024-06-26 at 14.10.53.jpeg"
+          alt="Image next to MASTERMED"
+        />
+      </div>
+      <!-- Inside the .additional-paragraph div, after the <p> tag -->
+      <img src="Location.png" alt="Description of image" class="bottom-image" />
+      <!-- Place this where you want the new image to appear -->
+      <a href="mailto:mastermed.india@gmail.com">
+        <img
+          src="Fast Email.png"
+          class="custom-positioned-image"
+          alt="Email Link"
+        />
+      </a>
+      <div class="pharmaceutical">
+        <h2>
+          <span>Pharmaceutical Solutions</span>
+        </h2>
+      </div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="home.html" class="nav-link">HOME</a></li>
+          <li><a href="services.html" class="nav-link">SERVICES</a></li>
+          <li><a href="about.html" class="nav-link">ABOUT US</a></li>
+          <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Inside the bottom-half div, after the existing content -->
+    <div class="bottom-half">
+      <!-- Existing content... -->
+
+      <div class="new-container">
+        <img src="ne2.jpg" alt="Description of image" />
+        <img src="ne3.jpg" alt="Description of image" />
+        <img src="ne4.jpg" alt="Description of image" />
+        <img src="new1.jpg" alt="Description of image" />
+        <img src="3image.jpg" alt="Description of image" />
+        <img src=".2nw.avif" alt="Description of image" />
+
+        <!-- Add more images as needed -->
+      </div>
+<a href="mailto:mastermed.india@gmail.com">
+  <button class="button">
+    <div class="outline"></div>
+    <div class="state state--default">
+      <div class="icon">
+        <svg
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g style="filter: url(#shadow)">
+            <path
+              d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z"
+              fill="currentColor"
+            ></path>
+            <path
+              d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z"
+              fill="currentColor"
+            ></path>
+          </g>
+          <defs>
+            <filter id="shadow">
+              <fedropshadow
+                dx="0"
+                dy="1"
+                stdDeviation="0.6"
+                flood-opacity="0.5"
+              ></fedropshadow>
+            </filter>
+          </defs>
+        </svg>
+      </div>
+      <p>
+        <span style="--i:0">S</span>
+        <span style="--i:1">e</span>
+        <span style="--i:2">n</span>
+        <span style="--i:3">d</span>
+        <span style="--i:4">M</span>
+        <span style="--i:5">e</span>
+        <span style="--i:6">s</span>
+        <span style="--i:7">s</span>
+        <span style="--i:8">a</span>
+        <span style="--i:9">g</span>
+        <span style="--i:10">e</span>
+      </p>
+    </div>
+    <div class="state state--sent">
+      <div class="icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          height="1em"
+          width="1em"
+          stroke-width="0.5px"
+          stroke="black"
+        >
+          <g style="filter: url(#shadow)">
+            <path
+              fill="currentColor"
+              d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
+            ></path>
+            <path
+              fill="currentColor"
+              d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+            ></path>
+          </g>
+        </svg>
+      </div>
+      <p>
+        <span style="--i:5">S</span>
+        <span style="--i:6">e</span>
+        <span style="--i:7">n</span>
+        <span style="--i:8">t</span>
+      </p>
+    </div>
+  </button>
+</a>
+
+</button>
+
+        <!-- Other content -->
+        <div class="about-container">
+          <span class="about-text">ABOUT</span>
+          <span class="about-text">US</span>
+        </div>
+      </div>
+      
+      <!-- Existing content... -->
+    </div>
+    <div class="statement-container">
+      <p>
+        To preserve and improve patients' health by consistently delivering
+        high-quality, safe, and effective pharmaceutical products and services
+        that meet customer expectations across the globe through current good
+        manufacturing practices, state-of-the-art technology, a competent
+        workforce, and efficient management.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">GEN-AI:HYPE OF AI</h2>
+          <p class="card-text">11 JUNE 2024</p>
+          <p class="card-author">by: Kaushal Chakraborty</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">Nvidia - Blackwell GPU</h2>
+          <p class="card-text">13 JUNE 2024</p>
+          <p class="card-author">by: Kaushal Chakraborty</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h2 class="card-title">
+            The Rise of Edge Computing: Transforming the Landscap...
+          </h2>
+          <p class="card-text">14 JUNE 2024</p>
+          <p class="card-author">by: Ritisha Katiyar</p>
+        </div>
+      </div>
+    </div>
+    <a href="learnmore.html" class="learn-more-circle">
+      <div class="arrow"></div>
+    </a>
+    <!-- Dark blue section at the bottom -->
+    <div class="bottom-section"></div>
+    <!-- JavaScript for animations -->
+    <script>
+      const navButtons = document.querySelectorAll(".nav button");
+      const cards = document.querySelectorAll(".card");
+
+      navButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          navButtons.forEach((b) => b.classList.remove("active"));
+          button.classList.add("active");
+
+          const category = button.textContent.toLowerCase();
+          cards.forEach((card) => {
+            if (
+              category === "all" ||
+              card
+                .querySelector(".card-title")
+                .textContent.toLowerCase()
+                .includes(category)
+            ) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

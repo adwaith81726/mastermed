@@ -1,0 +1,72 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+.top-half {
+  background-color: #241e4e;
+  color: white;
+  height: 20%; /* Adjusted to 20% */
+  display: flex;
+  flex-direction: column; /* Ensures items stack vertically */
+  align-items: flex-end; /* Align items to the right */
+  justify-content: center;
+  position: relative; /* Ensure .top-half is a positioning context */
+}
+
+.mastermed {
+  color: #eadaa2;
+  position: absolute; /* Allows for positioning within .top-half */
+  top: 20px; /* Adjust to position from the top */
+  left: 50px; /* Adjust to position from the left */
+}
+
+.pharmaceutical {
+  color: #eadaa2;
+  top: 50px;
+  left: 40px;
+  margin-top: -1.5em; /* Adjusted margin-top */
+}
+
+.navigation {
+  margin-top: -40px;
+  margin-left: 900px; /* Align navigation to the right */
+  margin-right: 20px; /* Adjust margin-right for spacing */
+}
+
+.navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: right; /* Align links to the right */
+}
+
+.navigation ul li {
+  display: inline-block;
+  margin-left: 10px; /* Adjust space between links */
+}
+
+.navigation ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.navigation ul li a:hover,
+.navigation ul li a:focus {
+  background-color: #3e0272; /* Red background on hover/focus */
+}
+
+.bottom-half {
+  background-color: rgba(235, 238, 210, 0.952);
+  color: black;
+  height: 80%; /* Adjusted to 80% */
+  display: flex;
+  flex-direction: column; /* Ensures items stack vertically */
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Ensure .bottom-half is a positioning context */
+}
