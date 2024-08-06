@@ -222,36 +222,23 @@
       }
       .bottom-section {
         background-color: #241e4e; /* Dark blue color */
-        width: 99.01%; /* Full width */
+        width: 100%; /* Full width */
         height: 80px; /* Height of 80 pixels */
         position: fixed; /* Fixed positioning */
         bottom: 0; /* Positioned at the bottom */
         display: flex; /* Flexbox for alignment */
-        justify-content: space-around; /* Space images evenly */
+        justify-content: space-between; /* Space images evenly */
         align-items: center; /* Center images vertically */
       }
 
       /* Style for the new image */
       .bottom-image {
-    width: 2px; /* Decreased image width */
-    height: 2px; /* Decreased image height */
-    object-fit: cover; /* Ensure the image covers the area */
-    position: absolute; /* Position the image absolutely */
-    left: 85%; /* Adjust left position as needed */
-    transform: translateX(-40%); /* Center the image horizontally */
-    bottom: 20px; /* Adjust bottom position as needed */
-    top: 600px; /* Adjust top position as needed */
+        width: 70px;
 }
 
 /* Style for the new image with custom positioning */
 .custom-positioned-image {
-    width: 25px; /* Decreased width */
-    height: 25px; /* Decreased height */
-    object-fit: cover; /* Ensure the image covers the area */
-    position: absolute; /* Position the image absolutely */
-    left: 50px; /* Adjust left position */
-    bottom: 20px; /* Adjust bottom position */
-    top: 610px; /* Adjust top position */
+   width: 70px;
 }
 
 
@@ -646,15 +633,8 @@
         />
       </div>
       <!-- Inside the .additional-paragraph div, after the <p> tag -->
-      <img src="Location.png" alt="Description of image" class="bottom-image" />
       <!-- Place this where you want the new image to appear -->
-      <a href="mailto:mastermed.india@gmail.com">
-        <img
-          src="Fast Email.png"
-          class="custom-positioned-image"
-          alt="Email Link"
-        />
-      </a>
+     
       <div class="pharmaceutical">
         <h2>
           <span>Pharmaceutical Solutions</span>
@@ -814,7 +794,17 @@
       <div class="arrow"></div>
     </a>
     <!-- Dark blue section at the bottom -->
-    <div class="bottom-section"></div>
+    <div class="bottom-section">
+       <a href="mailto:mastermed.india@gmail.com">
+        <img
+          src="Fast Email.png"
+          class="custom-positioned-image"
+          alt="Email Link"
+        />
+      </a>
+            <img src="Location.png" alt="Description of image" class="bottom-image" />
+
+    </div>
     <!-- JavaScript for animations -->
     <script>
       const navButtons = document.querySelectorAll(".nav button");
